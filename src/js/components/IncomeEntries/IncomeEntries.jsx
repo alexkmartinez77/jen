@@ -91,7 +91,7 @@ export default class IncomeEntries extends React.Component {
               <tbody>
                 {
                   lineItems.map((lineItem, index) => (
-                    <tr key={index}>
+                    <tr key={lineItem.description}>
                       <td>{ lineItem.description }</td>
                       <td>${ lineItem.amount.toFixed(2) }</td>
                       <td><a className="pointer text-success" onClick={() => this.handleDeleteIncome(index) }><span className="material-icons float-right">delete</span></a></td>
