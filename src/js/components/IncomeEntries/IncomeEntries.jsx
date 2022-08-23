@@ -1,10 +1,10 @@
 import React from 'react';
+
 // We'll need to import all those action creators.
 import {
   updateIncomeDescription,
   updateIncomeAmount,
-  addIncome,
-  deleteIncome
+  addIncome
 } from './incomeActions';
 
 export default class IncomeEntries extends React.Component {
@@ -18,7 +18,6 @@ export default class IncomeEntries extends React.Component {
     this.handleDescriptionInput = this.handleDescriptionInput.bind(this);
     this.handleAmountInput = this.handleAmountInput.bind(this);
     this.handleAddIncome = this.handleAddIncome.bind(this);
-    this.handleDeleteIncome = this.handleDeleteIncome.bind(this);
   }
 
   handleDescriptionInput(event) {
@@ -37,11 +36,6 @@ export default class IncomeEntries extends React.Component {
   handleAddIncome() {
     const { description, amount, dispatch } = this.props;
     dispatch(addIncome(description, amount));
-  }
-
-  handleDeleteIncome(index){
-    const { dispatch } = this.props;
-    dispatch(deleteIncome(index));
   }
 
   render() {
@@ -90,12 +84,12 @@ export default class IncomeEntries extends React.Component {
               </thead>
               <tbody>
                 {
-                  lineItems.map((lineItem, index) => (
+                  lineItems.map(lineItem => (
                     <tr key={lineItem.description}>
                       <td>{ lineItem.description }</td>
                       <td>${ lineItem.amount.toFixed(2) }</td>
-                      <td><a className="pointer text-success" onClick={() => this.handleDeleteIncome(index) }><span className="material-icons float-right">delete</span></a></td>
                     </tr>
+                    
                   ))
                 }
               </tbody>
