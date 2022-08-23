@@ -3,10 +3,9 @@ import IncomeEntries from './IncomeEntries';
 
 function mapStoreToProps(store) {
 	return {
-		description: store.expense.description,
-		amount: store.expense.amount,
-		lineItems: store.expense.lineItems
+		description: store.income.description,
+		amount: store.income.amount,
+		lineItems: store.income.lineItems
 	};
 }
-
 export default connect(mapStoreToProps)(IncomeEntries);
