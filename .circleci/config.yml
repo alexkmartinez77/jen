@@ -7,15 +7,15 @@ orbs:
 jobs:
   build:
     docker:
-      - image: cimg/node:16.14.2
+      - image: cimg/node:14.18.1
     steps:
       - checkout
       - node/install:
-        node-version: '16.14.2'
+        node-version: '14.18.1'
       - node/install-packages
   deploy:
     docker:
-      - image: cimg/node:16.14.2
+      - image: cimg/node:14.18.1
     steps:
       - heroku/deploy-via-git:
           api-key: $HEROKU_API_KEY
