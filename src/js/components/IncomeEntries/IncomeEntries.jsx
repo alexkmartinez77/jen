@@ -85,7 +85,7 @@ export default class IncomeEntries extends React.Component {
               <tbody>
                 {
                   lineItems.map(lineItem => (
-                    <tr>
+                    <tr key={lineItem.description}>
                       <td>{ lineItem.description }</td>
                       <td>${ lineItem.amount.toFixed(2) }</td>
                     </tr>
